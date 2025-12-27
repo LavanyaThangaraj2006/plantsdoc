@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Leaf, Target, Users, Lightbulb, CheckCircle, Code, Rocket, Award } from "lucide-react";
+import { ChevronLeft, ChevronRight, Leaf, Target, Users, Lightbulb, CheckCircle, Code, Rocket, Award, FileText, TestTube, Presentation, MessageSquare } from "lucide-react";
 
 interface Slide {
   id: number;
   title: string;
+  subtitle?: string;
   icon: React.ReactNode;
   content: React.ReactNode;
 }
@@ -16,10 +17,11 @@ const Report = () => {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "Project Overview",
+      title: "Title of the Project",
+      subtitle: "Plant Disease Identifier",
       icon: <Leaf className="w-12 h-12 text-primary" />,
       content: (
-        <div className="space-y-6 text-center">
+        <div className="space-y-8 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
             <Leaf className="w-5 h-5 text-primary" />
             <span className="text-primary font-medium">AI-Powered Solution</span>
@@ -28,20 +30,25 @@ const Report = () => {
             Plant Disease Identifier
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            An intelligent mobile-friendly application that identifies plant diseases from leaf images using advanced image classification technology.
+            AI-Powered Plant Health Analysis Application
           </p>
-          <div className="grid grid-cols-3 gap-4 max-w-md mx-auto pt-6">
+          
+          <div className="grid grid-cols-2 gap-6 max-w-md mx-auto pt-6 text-left">
             <div className="p-4 bg-card rounded-xl border border-border">
-              <div className="text-2xl font-bold text-primary">50+</div>
-              <div className="text-sm text-muted-foreground">Diseases</div>
+              <div className="text-sm text-muted-foreground">Name of Innovator</div>
+              <div className="font-semibold text-foreground">[Your Name]</div>
             </div>
             <div className="p-4 bg-card rounded-xl border border-border">
-              <div className="text-2xl font-bold text-primary">99%</div>
-              <div className="text-sm text-muted-foreground">Accuracy</div>
+              <div className="text-sm text-muted-foreground">Start Date</div>
+              <div className="font-semibold text-foreground">25-12-2025</div>
             </div>
             <div className="p-4 bg-card rounded-xl border border-border">
-              <div className="text-2xl font-bold text-primary">&lt;3s</div>
-              <div className="text-sm text-muted-foreground">Analysis</div>
+              <div className="text-sm text-muted-foreground">End Date</div>
+              <div className="font-semibold text-foreground">02-01-2026</div>
+            </div>
+            <div className="p-4 bg-card rounded-xl border border-border">
+              <div className="text-sm text-muted-foreground">Project Type</div>
+              <div className="font-semibold text-foreground">Web Application</div>
             </div>
           </div>
         </div>
@@ -49,54 +56,59 @@ const Report = () => {
     },
     {
       id: 2,
-      title: "Problem Statement",
+      title: "Day 1: Empathise & Define",
+      subtitle: "Step 1: Understanding the Need",
       icon: <Target className="w-12 h-12 text-destructive" />,
       content: (
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            The Problem We Are Solving
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 bg-destructive/10 rounded-2xl border border-destructive/20">
-              <h3 className="text-xl font-semibold text-destructive mb-4">Challenges Faced</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-destructive rounded-full mt-2"></span>
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-destructive/10 text-destructive rounded-full text-sm font-medium">Day 1</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Empathise & Define</h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-primary mb-3">Which problem am I trying to solve?</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
                   Farmers struggle to identify plant diseases early
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-destructive rounded-full mt-2"></span>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
                   Lack of expert knowledge leads to crop loss
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-destructive rounded-full mt-2"></span>
+                <li className="flex items-start gap-2">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
                   Traditional diagnosis requires costly lab tests
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-destructive rounded-full mt-2"></span>
-                  Delayed treatment results in significant damage
                 </li>
               </ul>
             </div>
-            <div className="p-6 bg-warning/10 rounded-2xl border border-warning/20">
-              <h3 className="text-xl font-semibold text-warning mb-4">Impact Statistics</h3>
-              <ul className="space-y-3 text-muted-foreground">
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-warning rounded-full mt-2"></span>
-                  40% of global crops lost to diseases annually
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-warning rounded-full mt-2"></span>
-                  $220 billion economic loss worldwide
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-warning rounded-full mt-2"></span>
-                  Small farmers most affected
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-2 h-2 bg-warning rounded-full mt-2"></span>
-                  Early detection can prevent 80% of losses
-                </li>
+            
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-secondary mb-3">Who is affected by this problem?</h3>
+              <ol className="space-y-2 text-muted-foreground text-sm list-decimal list-inside">
+                <li>Small-scale farmers</li>
+                <li>Home gardeners and hobbyists</li>
+                <li>Agricultural workers in remote areas</li>
+                <li>Greenhouse managers and nurseries</li>
+              </ol>
+            </div>
+            
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-warning mb-3">How did I find out about this?</h3>
+              <div className="flex flex-wrap gap-2">
+                {["Observation", "Online Research", "AI Tools", "Farmer Interviews"].map((item, idx) => (
+                  <span key={idx} className="px-3 py-1 bg-warning/10 text-warning rounded-full text-sm">{item}</span>
+                ))}
+              </div>
+            </div>
+            
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-success mb-3">AI Tools Used</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li><strong>ChatGPT:</strong> Analyze problem & identify user needs</li>
+                <li><strong>Perplexity AI:</strong> Research plant disease challenges</li>
               </ul>
             </div>
           </div>
@@ -105,219 +117,152 @@ const Report = () => {
     },
     {
       id: 3,
-      title: "Target Audience",
-      icon: <Users className="w-12 h-12 text-secondary" />,
+      title: "Day 1: Empathise & Define",
+      subtitle: "Step 2: What is the problem?",
+      icon: <FileText className="w-12 h-12 text-destructive" />,
       content: (
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Who Benefits From This Solution?
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-            {[
-              { icon: "🌾", title: "Farmers", desc: "Small & large scale agricultural workers" },
-              { icon: "🏡", title: "Home Gardeners", desc: "Hobbyists growing plants at home" },
-              { icon: "🔬", title: "Researchers", desc: "Agricultural scientists & students" },
-              { icon: "🌿", title: "Nurseries", desc: "Plant nursery owners & managers" },
-            ].map((item, idx) => (
-              <div key={idx} className="p-6 bg-card rounded-2xl border border-border text-center hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-3">{item.icon}</div>
-                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-destructive/10 text-destructive rounded-full text-sm font-medium">Day 1 - Step 2</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">What is the Problem?</h2>
           </div>
-          <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20 mt-6">
-            <h3 className="text-lg font-semibold text-foreground mb-2 text-center">Research Methods Used</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              {["User Interviews", "Online Research", "AI Analysis", "Field Observation", "Survey Data"].map((method, idx) => (
-                <span key={idx} className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                  {method}
-                </span>
-              ))}
-            </div>
+          
+          <div className="p-6 bg-destructive/5 rounded-2xl border border-destructive/20 mb-6">
+            <p className="text-foreground text-lg leading-relaxed">
+              Plant diseases cause <strong>40% of global crop losses</strong> annually because farmers cannot identify diseases early. By the time symptoms become obvious, significant damage has already occurred. Most farmers lack access to plant pathologists or affordable disease identification tools.
+            </p>
+          </div>
+          
+          <div className="p-6 bg-success/5 rounded-2xl border border-success/20 mb-6">
+            <h3 className="text-lg font-semibold text-success mb-3">Why is this problem important to solve?</h3>
+            <p className="text-muted-foreground">
+              Early disease detection can prevent up to <strong>80% of crop losses</strong>. A mobile-friendly AI tool democratizes access to expert-level plant diagnosis, helping farmers take preventive action quickly and save their crops.
+            </p>
+          </div>
+          
+          <div className="p-6 bg-card rounded-2xl border border-border">
+            <h3 className="text-lg font-semibold text-foreground mb-3">📝 Take-home Task: User Research</h3>
+            <p className="text-muted-foreground text-sm mb-4">After discussing with farmers and gardeners:</p>
+            <ul className="space-y-2 text-muted-foreground text-sm">
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                Farmers said identifying diseases from leaf symptoms is the hardest part of plant care
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                Most waste time searching online or consulting expensive experts
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2"></span>
+                They need instant, accurate diagnosis on their smartphones
+              </li>
+            </ul>
           </div>
         </div>
       ),
     },
     {
       id: 4,
-      title: "Solution Ideation",
+      title: "Day 2: Ideate",
+      subtitle: "Step 3-5: Solutions",
       icon: <Lightbulb className="w-12 h-12 text-warning" />,
       content: (
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Explored Solutions
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-            {[
-              { num: 1, title: "AI Image Recognition App", desc: "Instant disease detection from photos", selected: true },
-              { num: 2, title: "Community Forum", desc: "Farmers share disease photos for advice", selected: false },
-              { num: 3, title: "SMS Reporting System", desc: "Text-based disease symptom checker", selected: false },
-              { num: 4, title: "Drone Monitoring", desc: "Aerial crop health scanning", selected: false },
-              { num: 5, title: "IoT Sensors", desc: "Real-time plant health monitoring", selected: false },
-            ].map((solution) => (
-              <div
-                key={solution.num}
-                className={`p-5 rounded-2xl border-2 transition-all ${
-                  solution.selected
-                    ? "bg-primary/10 border-primary shadow-lg"
-                    : "bg-card border-border"
-                }`}
-              >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-3 ${
-                  solution.selected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
-                }`}>
-                  {solution.num}
-                </div>
-                <h3 className={`font-semibold mb-2 ${solution.selected ? "text-primary" : "text-foreground"}`}>
-                  {solution.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">{solution.desc}</p>
-                {solution.selected && (
-                  <div className="mt-3 inline-flex items-center gap-1 text-primary text-sm font-medium">
-                    <CheckCircle className="w-4 h-4" /> Selected Solution
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-warning/10 text-warning rounded-full text-sm font-medium">Day 2</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Ideate</h2>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Step 3: List at least 5 different solutions</h3>
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                { num: 1, title: "AI Image Recognition App", desc: "Instant disease detection from photos", selected: true },
+                { num: 2, title: "Community Forum Platform", desc: "Farmers share disease photos for advice" },
+                { num: 3, title: "SMS-based Symptom Checker", desc: "Text-based disease diagnosis" },
+                { num: 4, title: "Drone Crop Monitoring", desc: "Aerial scanning for large farms" },
+                { num: 5, title: "IoT Sensor Network", desc: "Real-time plant health monitoring" },
+              ].map((s) => (
+                <div key={s.num} className={`p-3 rounded-xl border flex items-start gap-3 ${s.selected ? "bg-primary/10 border-primary" : "bg-muted/30 border-border"}`}>
+                  <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${s.selected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"}`}>{s.num}</span>
+                  <div>
+                    <div className={`font-medium text-sm ${s.selected ? "text-primary" : "text-foreground"}`}>{s.title}</div>
+                    <div className="text-xs text-muted-foreground">{s.desc}</div>
                   </div>
-                )}
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-5 bg-primary/5 rounded-2xl border border-primary/20">
+              <h3 className="text-lg font-semibold text-primary mb-2">Step 4: My Favourite Solution</h3>
+              <p className="text-muted-foreground text-sm">
+                <strong>AI-Powered Plant Disease Identifier</strong> – A mobile-friendly web application that uses image classification to instantly identify plant diseases from leaf photos.
+              </p>
+            </div>
+            
+            <div className="p-5 bg-success/5 rounded-2xl border border-success/20">
+              <h3 className="text-lg font-semibold text-success mb-2">Step 5: Why this solution?</h3>
+              <p className="text-muted-foreground text-sm">
+                This solution is simple, accessible, and useful. It helps farmers get instant diagnosis using their smartphones without needing internet expertise or expensive consultations.
+              </p>
+            </div>
           </div>
         </div>
       ),
     },
     {
       id: 5,
-      title: "Chosen Solution",
-      icon: <CheckCircle className="w-12 h-12 text-success" />,
+      title: "Day 2: Ideate",
+      subtitle: "Take-home Task: App Screenshots",
+      icon: <Code className="w-12 h-12 text-warning" />,
       content: (
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Why AI-Powered Image Recognition?
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
-            {[
-              { icon: "📱", title: "Accessible", desc: "Works on any smartphone with camera access" },
-              { icon: "⚡", title: "Instant", desc: "Get results in under 3 seconds" },
-              { icon: "🎯", title: "Accurate", desc: "99% accuracy with trained AI model" },
-              { icon: "🌐", title: "Scalable", desc: "Can identify 50+ plant diseases" },
-              { icon: "💡", title: "User-Friendly", desc: "Simple interface for non-technical users" },
-              { icon: "💰", title: "Cost-Effective", desc: "Free to use, no expert fees required" },
-            ].map((item, idx) => (
-              <div key={idx} className="p-5 bg-success/5 rounded-2xl border border-success/20 text-center">
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </div>
-            ))}
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-warning/10 text-warning rounded-full text-sm font-medium">Day 2 - Take-home Task</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Application Design</h2>
           </div>
-        </div>
-      ),
-    },
-    {
-      id: 6,
-      title: "Features Built",
-      icon: <Code className="w-12 h-12 text-primary" />,
-      content: (
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Key Features Implemented
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4 mt-8">
-            {[
-              { icon: "📤", title: "Image Upload", desc: "Drag-and-drop or click to upload leaf images" },
-              { icon: "📷", title: "Camera Capture", desc: "Take photos directly from device camera" },
-              { icon: "🤖", title: "AI Analysis", desc: "Deep learning model for disease detection" },
-              { icon: "📊", title: "Confidence Score", desc: "Percentage accuracy of diagnosis" },
-              { icon: "✅", title: "Health Status", desc: "Clear healthy or infected indication" },
-              { icon: "💊", title: "Recommendations", desc: "Treatment suggestions for detected diseases" },
-              { icon: "📱", title: "Mobile Responsive", desc: "Works seamlessly on all devices" },
-              { icon: "🎨", title: "Modern UI", desc: "Beautiful, intuitive user interface" },
-            ].map((feature, idx) => (
-              <div key={idx} className="flex items-start gap-4 p-4 bg-card rounded-xl border border-border">
-                <div className="text-2xl">{feature.icon}</div>
-                <div>
-                  <h3 className="font-semibold text-foreground">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">{feature.desc}</p>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-4">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Pages & Features Included:</h3>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="space-y-3">
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">1. Home Page</h4>
+                  <p className="text-sm text-muted-foreground">Green nature theme, hero section with CTA, feature highlights</p>
+                </div>
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">2. Image Upload Section</h4>
+                  <p className="text-sm text-muted-foreground">Drag-and-drop upload, camera capture option</p>
+                </div>
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">3. AI Analysis Engine</h4>
+                  <p className="text-sm text-muted-foreground">Deep learning model processes leaf images</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 7,
-      title: "Technology Stack",
-      icon: <Code className="w-12 h-12 text-secondary" />,
-      content: (
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Technologies Used
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
-            <div className="p-6 bg-card rounded-2xl border border-border">
-              <h3 className="text-xl font-semibold text-primary mb-4">Frontend</h3>
-              <div className="flex flex-wrap gap-2">
-                {["React", "TypeScript", "Tailwind CSS", "Shadcn UI", "Vite", "Lucide Icons"].map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1.5 bg-primary/10 text-primary rounded-lg text-sm font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="p-6 bg-card rounded-2xl border border-border">
-              <h3 className="text-xl font-semibold text-secondary mb-4">AI & Backend</h3>
-              <div className="flex flex-wrap gap-2">
-                {["TensorFlow", "Keras", "TensorFlow Lite", "Image Classification", "Deep Learning"].map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1.5 bg-secondary/10 text-secondary rounded-lg text-sm font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="p-6 bg-card rounded-2xl border border-border md:col-span-2">
-              <h3 className="text-xl font-semibold text-foreground mb-4">Dataset & Training</h3>
-              <p className="text-muted-foreground mb-3">
-                Model trained using the PlantVillage dataset from Kaggle containing 50,000+ images of healthy and diseased plant leaves across 38 categories.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["PlantVillage Dataset", "Data Augmentation", "Image Preprocessing", "Model Optimization"].map((item, idx) => (
-                  <span key={idx} className="px-3 py-1.5 bg-muted text-muted-foreground rounded-lg text-sm">
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      id: 8,
-      title: "Future Roadmap",
-      icon: <Rocket className="w-12 h-12 text-warning" />,
-      content: (
-        <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground text-center">
-            Future Improvements
-          </h2>
-          <div className="relative mt-8">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-border"></div>
-            <div className="space-y-8">
-              {[
-                { phase: "Phase 1", title: "Expand Disease Database", desc: "Add 100+ more plant diseases and conditions" },
-                { phase: "Phase 2", title: "Offline PWA Support", desc: "Enable offline usage for field workers" },
-                { phase: "Phase 3", title: "Multi-language Support", desc: "Add regional languages for wider accessibility" },
-                { phase: "Phase 4", title: "Expert Consultation", desc: "Connect users with plant pathologists" },
-              ].map((item, idx) => (
-                <div key={idx} className={`flex items-center gap-6 ${idx % 2 === 0 ? "flex-row" : "flex-row-reverse"}`}>
-                  <div className={`flex-1 p-5 bg-card rounded-2xl border border-border ${idx % 2 === 0 ? "text-right" : "text-left"}`}>
-                    <span className="text-sm text-primary font-medium">{item.phase}</span>
-                    <h3 className="font-semibold text-foreground mt-1">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{item.desc}</p>
-                  </div>
-                  <div className="w-4 h-4 bg-primary rounded-full z-10"></div>
-                  <div className="flex-1"></div>
+              <div className="space-y-3">
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">4. Results Display</h4>
+                  <p className="text-sm text-muted-foreground">Disease name, confidence score, health status</p>
                 </div>
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">5. Recommendations</h4>
+                  <p className="text-sm text-muted-foreground">Treatment suggestions and prevention tips</p>
+                </div>
+                <div className="p-3 bg-muted/30 rounded-xl">
+                  <h4 className="font-medium text-foreground">6. How It Works</h4>
+                  <p className="text-sm text-muted-foreground">Step-by-step guide for users</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="p-4 bg-secondary/10 rounded-xl border border-secondary/20">
+            <h4 className="font-semibold text-secondary mb-2">AI Tools used for Step 3-5:</h4>
+            <div className="flex flex-wrap gap-2">
+              {["ChatGPT – Ideas & content", "Lovable AI – Website building", "Meta AI – Image generation"].map((tool, idx) => (
+                <span key={idx} className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">{tool}</span>
               ))}
             </div>
           </div>
@@ -325,38 +270,220 @@ const Report = () => {
       ),
     },
     {
-      id: 9,
-      title: "Conclusion",
-      icon: <Award className="w-12 h-12 text-primary" />,
+      id: 6,
+      title: "Day 3: Prototype & Test",
+      subtitle: "Step 6: Building My First Version",
+      icon: <TestTube className="w-12 h-12 text-primary" />,
       content: (
-        <div className="space-y-6 text-center">
-          <Award className="w-16 h-16 text-primary mx-auto" />
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
-            Thank You!
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            The Plant Disease Identifier empowers farmers and gardeners to quickly identify plant diseases using AI, enabling early preventive action and reducing crop losses.
-          </p>
-          <div className="p-6 bg-primary/5 rounded-2xl border border-primary/20 max-w-xl mx-auto">
-            <h3 className="font-semibold text-foreground mb-3">Project Impact</h3>
-            <div className="grid grid-cols-3 gap-4">
-              <div>
-                <div className="text-2xl font-bold text-primary">80%</div>
-                <div className="text-xs text-muted-foreground">Faster Diagnosis</div>
+        <div className="space-y-6">
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Day 3</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Prototype & Test</h2>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-4">
+            <h3 className="text-lg font-semibold text-foreground mb-3">What will my solution look like?</h3>
+            <p className="text-muted-foreground mb-4">
+              A mobile-friendly website with a clean green-themed interface where users can upload or capture plant leaf images, get instant AI-powered disease analysis, view confidence scores, and receive treatment recommendations.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-primary mb-3">Technologies Used</h3>
+              <div className="space-y-2">
+                <div>
+                  <div className="text-sm font-medium text-foreground">Frontend</div>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {["React", "TypeScript", "Tailwind CSS", "Shadcn UI"].map((t, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-primary/10 text-primary text-xs rounded">{t}</span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-foreground">AI & Backend</div>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {["TensorFlow", "Keras", "TFLite", "Deep Learning"].map((t, i) => (
+                      <span key={i} className="px-2 py-0.5 bg-secondary/10 text-secondary text-xs rounded">{t}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-success">40%</div>
-                <div className="text-xs text-muted-foreground">Reduced Crop Loss</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-warning">Free</div>
-                <div className="text-xs text-muted-foreground">For All Users</div>
+            </div>
+            
+            <div className="p-5 bg-card rounded-2xl border border-border">
+              <h3 className="text-lg font-semibold text-secondary mb-3">Dataset & Training</h3>
+              <p className="text-muted-foreground text-sm mb-2">
+                Model trained using the <strong>PlantVillage dataset</strong> from Kaggle containing 50,000+ images across 38 disease categories.
+              </p>
+              <div className="flex flex-wrap gap-1">
+                {["Data Augmentation", "Image Preprocessing", "Model Optimization"].map((t, i) => (
+                  <span key={i} className="px-2 py-0.5 bg-muted text-muted-foreground text-xs rounded">{t}</span>
+                ))}
               </div>
             </div>
           </div>
-          <div className="pt-4">
+          
+          <div className="p-4 bg-primary/5 rounded-xl border border-primary/20">
+            <h4 className="font-semibold text-primary mb-2">AI Tools for Building:</h4>
+            <ol className="text-sm text-muted-foreground space-y-1 list-decimal list-inside">
+              <li><strong>ChatGPT</strong> – Content, formulas, explanations</li>
+              <li><strong>Lovable AI</strong> – Website design and development</li>
+              <li><strong>GitHub</strong> – Code hosting and version control</li>
+            </ol>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 7,
+      title: "Day 3: Prototype & Test",
+      subtitle: "Step 7: Getting Feedback",
+      icon: <MessageSquare className="w-12 h-12 text-primary" />,
+      content: (
+        <div className="space-y-6">
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Day 3 - Step 7</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Test – Getting Feedback</h2>
+          </div>
+          
+          <div className="p-4 bg-card rounded-xl border border-border mb-4">
+            <h3 className="font-semibold text-foreground mb-2">Who tested?</h3>
+            <div className="flex flex-wrap gap-2">
+              {["Classmates", "Project Mentor", "Local Farmers", "Home Gardeners"].map((t, i) => (
+                <span key={i} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-sm">{t}</span>
+              ))}
+            </div>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="p-5 bg-success/5 rounded-2xl border border-success/20">
+              <h3 className="text-lg font-semibold text-success mb-3">👍 What works well:</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-success" /> Clean, nature-inspired layout</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-success" /> Easy image upload process</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-success" /> Fast and accurate results</li>
+                <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-success" /> Clear confidence scores</li>
+              </ul>
+            </div>
+            
+            <div className="p-5 bg-warning/5 rounded-2xl border border-warning/20">
+              <h3 className="text-lg font-semibold text-warning mb-3">🔧 What needs improvement:</h3>
+              <ul className="space-y-2 text-muted-foreground text-sm">
+                <li className="flex items-center gap-2"><span className="w-4 h-4 text-center">•</span> Add more disease categories</li>
+                <li className="flex items-center gap-2"><span className="w-4 h-4 text-center">•</span> Include offline PWA support</li>
+                <li className="flex items-center gap-2"><span className="w-4 h-4 text-center">•</span> Add scan history feature</li>
+                <li className="flex items-center gap-2"><span className="w-4 h-4 text-center">•</span> Multi-language support</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border">
+            <h3 className="font-semibold text-foreground mb-3">📝 Take-home Task</h3>
+            <p className="text-muted-foreground text-sm mb-3">
+              I recorded my project explanation and uploaded along with images and the website on GitHub:
+            </p>
+            <ul className="text-sm text-muted-foreground space-y-1">
+              <li>✓ Full project report explaining the Plant Disease Identifier</li>
+              <li>✓ Screenshot images of all main sections</li>
+              <li>✓ The main project files and website code</li>
+              <li>✓ Working website link generated using Lovable AI</li>
+            </ul>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 8,
+      title: "Day 4: Showcase",
+      subtitle: "Step 8: Presenting My Innovation",
+      icon: <Presentation className="w-12 h-12 text-secondary" />,
+      content: (
+        <div className="space-y-6">
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm font-medium">Day 4</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Showcase</h2>
+          </div>
+          
+          <div className="p-5 bg-primary/5 rounded-2xl border border-primary/20 text-center mb-4">
+            <div className="text-sm text-muted-foreground mb-1">Final Project Title</div>
+            <h3 className="text-xl font-bold text-primary">AI-Powered Plant Disease Identifier</h3>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-4">
+            <h3 className="text-lg font-semibold text-destructive mb-3">Problem Statement:</h3>
+            <p className="text-muted-foreground text-sm">
+              Many farmers and gardeners struggle to identify plant diseases because they lack expert knowledge. By the time visible symptoms appear, significant crop damage has already occurred. Traditional diagnosis requires expensive lab tests or consultations that are not accessible to small-scale farmers.
+            </p>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-4">
+            <h3 className="text-lg font-semibold text-primary mb-3">My Innovation:</h3>
+            <p className="text-muted-foreground text-sm mb-3">
+              I created a <strong>Plant Disease Identifier</strong> using Lovable AI and deep learning. This application allows users to:
+            </p>
+            <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Upload or capture plant leaf images</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Get instant AI-powered diagnosis</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> View confidence scores for accuracy</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Receive treatment recommendations</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Identify 50+ plant diseases</li>
+              <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4 text-primary" /> Use on any mobile device</li>
+            </ul>
+          </div>
+          
+          <div className="p-5 bg-success/5 rounded-2xl border border-success/20">
+            <h3 className="text-lg font-semibold text-success mb-3">Impact of My Innovation:</h3>
+            <p className="text-muted-foreground text-sm">
+              The Plant Disease Identifier makes crop health monitoring <strong>faster, easier, and more accessible</strong>. It reduces crop losses, empowers farmers with expert-level diagnosis, and helps them take early preventive action – ultimately improving food security and farmer livelihoods.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    {
+      id: 9,
+      title: "Day 4: Showcase",
+      subtitle: "Step 9: Reflections",
+      icon: <Award className="w-12 h-12 text-warning" />,
+      content: (
+        <div className="space-y-6">
+          <div className="text-center mb-6">
+            <span className="px-3 py-1 bg-warning/10 text-warning rounded-full text-sm font-medium">Day 4 - Step 9</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground mt-3">Reflections</h2>
+          </div>
+          
+          <div className="p-5 bg-success/5 rounded-2xl border border-success/20 mb-4">
+            <h3 className="text-lg font-semibold text-success mb-3">What did I enjoy the most?</h3>
+            <p className="text-muted-foreground">
+              Designing the nature-inspired user interface and implementing the AI-powered image analysis feature. Using Lovable AI made the development process much faster and more creative. Seeing farmers get instant disease diagnosis was extremely rewarding.
+            </p>
+          </div>
+          
+          <div className="p-5 bg-warning/5 rounded-2xl border border-warning/20 mb-4">
+            <h3 className="text-lg font-semibold text-warning mb-3">What was my biggest challenge?</h3>
+            <p className="text-muted-foreground">
+              Ensuring the AI model provides accurate disease detection across different lighting conditions and image qualities. Also, organizing the results display to show confidence scores and recommendations in a user-friendly way for non-technical farmers.
+            </p>
+          </div>
+          
+          <div className="p-5 bg-card rounded-2xl border border-border mb-4">
+            <h3 className="font-semibold text-foreground mb-3">📝 Take-home Task: Project Links</h3>
+            <div className="space-y-3">
+              <div className="p-3 bg-muted/30 rounded-xl">
+                <div className="text-sm text-muted-foreground">PROJECT LINK:</div>
+                <div className="text-primary font-medium break-all">[Your Lovable App URL]</div>
+              </div>
+              <div className="p-3 bg-muted/30 rounded-xl">
+                <div className="text-sm text-muted-foreground">GITHUB LINK:</div>
+                <div className="text-primary font-medium break-all">[Your GitHub Repository URL]</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center pt-4">
             <Button variant="hero" size="xl" onClick={() => window.location.href = "/"}>
-              Try PlantDoc Now
+              <Leaf className="w-5 h-5 mr-2" /> Try PlantDoc Now
             </Button>
           </div>
         </div>
@@ -376,7 +503,7 @@ const Report = () => {
     <>
       <Helmet>
         <title>Project Report - Plant Disease Identifier | PlantDoc</title>
-        <meta name="description" content="View the complete project report for Plant Disease Identifier - an AI-powered solution for plant health analysis." />
+        <meta name="description" content="IBM SkillsBuild Project Report for Plant Disease Identifier - an AI-powered solution for plant health analysis." />
       </Helmet>
 
       <div className="min-h-screen bg-background flex flex-col">
@@ -388,21 +515,18 @@ const Report = () => {
               <span className="font-display font-semibold text-foreground">PlantDoc</span>
             </a>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <span>Slide {currentSlide + 1} of {slides.length}</span>
+              <span className="hidden sm:inline">IBM SkillsBuild Report</span>
+              <span className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
+                {currentSlide + 1} / {slides.length}
+              </span>
             </div>
           </div>
         </header>
 
         {/* Slide Content */}
-        <main className="flex-1 flex items-center justify-center p-6 md:p-12">
-          <div className="w-full max-w-5xl">
-            <div className="bg-card rounded-3xl border border-border shadow-xl p-8 md:p-12 min-h-[500px] flex flex-col justify-center animate-fade-in-up">
-              <div className="flex items-center gap-3 mb-6 justify-center">
-                {slides[currentSlide].icon}
-                <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
-                  {slides[currentSlide].title}
-                </span>
-              </div>
+        <main className="flex-1 flex items-center justify-center p-4 md:p-8">
+          <div className="w-full max-w-4xl">
+            <div className="bg-card rounded-2xl border border-border shadow-xl p-6 md:p-10 min-h-[520px] flex flex-col justify-center animate-fade-in-up">
               {slides[currentSlide].content}
             </div>
           </div>
@@ -420,15 +544,15 @@ const Report = () => {
             </Button>
 
             {/* Slide Indicators */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-1.5">
               {slides.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  className={`h-2 rounded-full transition-all ${
                     idx === currentSlide
-                      ? "bg-primary w-8"
-                      : "bg-muted hover:bg-muted-foreground/50"
+                      ? "bg-primary w-6"
+                      : "bg-muted hover:bg-muted-foreground/50 w-2"
                   }`}
                 />
               ))}
