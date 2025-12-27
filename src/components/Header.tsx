@@ -19,6 +19,9 @@ const Header = () => {
           <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-smooth text-sm font-medium">
             How It Works
           </a>
+          <a href="/report" className="text-muted-foreground hover:text-foreground transition-smooth text-sm font-medium">
+            Report
+          </a>
         </nav>
       </div>
     </header>
